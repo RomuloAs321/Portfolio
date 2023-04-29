@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Agenda Telefônica</title>
+    
+  </head>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: aquamarine;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  form {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  #lista-contatos {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  </style>
+
+
+  <body>
+    
+    <h1>Agenda Telefônica</h1>
+    <form id="form-cadastro">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+      <br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <br>
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone" required>
+      <br>
+      <button type="submit">Cadastrar</button>
+    </form>
+    <div id="lista-contatos">
+      <h2>Lista de Contatos</h2>
+      <ul id="contatos"></ul>
+    </div>
+   
+<script>
+  const form = document.querySelector('#form-cadastro');
+const contatos = document.querySelector('#contatos');
+
+form.addEventListener('submit', function(event) {
+event.preventDefault();
+
+const nome = form.nome.value;
+const email = form.email.value;
+const telefone = form.telefone.value;
+
+const contato = document.createElement('li');
+contato.innerHTML = `<strong>${nome}:</strong> ${email}, ${telefone}`;
+
+contatos.appendChild(contato);
+
+form.reset();
+});
+
+
+
+</script>
+  </body>
+</html>
