@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exemplo de código HTML, CSS e JavaScript</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      margin: 20px;
+      text-align: center;
+    }
+    button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Meu Site</h1>
+  </header>
+  <main>
+    <h2>Bem-vindo!</h2>
+    <p>Clique no botão abaixo para mudar a cor de fundo.</p>
+    <button id="botao" onclick="mudarCor()">Clique aqui</button>
+  </main>
+  <script>
+    function mudarCor() {
+      var cor = document.body.style.backgroundColor;
+      if (cor === "" || cor === "rgb(242, 242, 242)") {
+        document.body.style.backgroundColor = "#333";
+      } else {
+        document.body.style.backgroundColor = "#f2f2f2";
+      }
+    }
+  </script>
+</body>
+</html>
