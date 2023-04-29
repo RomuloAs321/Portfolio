@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculadora de Soma,subtração,muliplicação e divisão</title>
+    <style>
+      /*Abranje os botoes e o display*/
+      .calculadora {
+        width: 200px;
+        margin: auto;
+        background-color: #635e5e;
+        border: 1px solid #070707;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px #141414;
+        font-family: Arial, sans-serif;
+      }
+      /*Display(onde aparece os resultados)*/
+      .display {
+        padding: 10px;
+        text-align: right;
+      }
+      /*conjunto dos botões*/
+      .botoes {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+      /*definições do botao*/
+      button {
+        border: none;
+        background-color: #fff;
+        font-size: 16px;
+        padding: 10px;
+        cursor: pointer;
+      }
+      /*cor que aparece ao passar o cursor por cima do botao*/
+      button:hover {
+        background-color: #0f2e72;
+      }
+      /*cor que aparece ao clicar botao*/
+      button:active {
+        background-color: #0d048b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculadora">
+      <div class="display">
+
+        <input type="text" id="resultado" disabled>
+      </div>
+
+        <div class="botoes">
+        <button onclick="inputNumero('1')">1</button>
+        <button onclick="inputNumero('2')">2</button>
+        <button onclick="inputNumero('3')">3</button>
+        <button onclick="inputOperador('+')">+</button>     
+        <button onclick="inputNumero('4')">4</button>
+        <button onclick="inputNumero('5')">5</button>
+        <button onclick="inputNumero('6')">6</button>
+        <button onclick="inputOperador('*')">*</button>
+        <button onclick="inputNumero('7')">7</button>
+        <button onclick="inputNumero('9')">9</button>
+        <button onclick="inputNumero('8')">8</button>
+        <button onclick="inputOperador('-')">-</button>
+        <button onclick="LimparDisplay()">C</button>
+        <button onclick="inputNumero('0')">0</button>
+        <button onclick="inputOperador('/')">/</button>
+       
+        <button onclick="calcular()">=</button>
+    
+      </div>
+    </div>
+
+
+
+    <script>
+      let num1 = '';
+      let num2 = '';
+      let operador = '';
+      
+      function inputNumero(num) {
+        if (operador === '') {
+          num1 += num;
+          document.getElementById('resultado').value = num1;
+        } else {
+          num2 += num;
+          document.getElementById('resultado').value = num2;
+        }
+      }
+      
+      function inputOperador(op) {
+  if (operador === '') {
+    operador = op;
+  } else {
+    num1 = calcular();
+    num2 = '';
+    operador = op;
+  }
+}
+      
+      function LimparDisplay() {
+        num1 = '';
+        num2 = '';
+        operador = '';
+        document.getElementById('resultado').value = '';
+      }
+      
+
+      function calcular() {
+        let resultado 
+
+             switch (operador) {
+              
+              case '+':
+                resultado= parseInt(num1) + parseInt(num2);
+                break;
+
+               case '-':
+               resultado = parseInt(num1) - parseInt(num2);
+
+              break;
+                 
+              case '*':
+              resultado = parseInt(num1) * parseInt(num2);
+
+              break;
+
+              case '/':
+              resultado = parseInt(num1) / parseInt(num2);
+              break;
+
+              default:
+
+                break;
+            }
+            document.getElementById('resultado').value = resultado;
+      }
+    </script>
+  </body>
+</html>
